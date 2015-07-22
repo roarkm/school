@@ -18,3 +18,25 @@ bundle install
 rake db:migrate
 rake db:seed
 ```
+
+# Push to production
+
+## Add remote branches
+
+```
+git remote add rssf https://git.heroku.com/rssf.git
+git remote add rssf-worker https://git.heroku.com/rssf-worker.git
+```
+
+## Push your changes
+
+```
+git push rssf master
+git push rssf-worker master
+```
+
+## Run migrations
+
+```
+heroku run rake db:migrate --app rssf
+```
